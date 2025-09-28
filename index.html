@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio & CV - Valentín López</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ffcc00;
+      --secondary: #ffaa00;
+      --bg-light: #f4f4f9;
+      --bg-dark: #111;
+      --text-dark: #222;
+      --text-light: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      display: flex;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+      font-weight: 800;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    .sidebar {
+      width: 260px;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    .sidebar h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar p {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .sidebar nav a {
+      display: block;
+      margin: 1rem 0;
+      color: #fff;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .sidebar nav a::after {
+      content: "";
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      transition: 0.3s;
+    }
+
+    .sidebar nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Main */
+    .main {
+      margin-left: 260px;
+      padding: 3rem;
+      flex: 1;
+      animation: fadeIn 1s ease;
+    }
+
+    section {
+      margin-bottom: 5rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    section h2::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background: var(--primary);
+      display: block;
+      margin-top: 0.5rem;
+      border-radius: 3px;
+    }
+
+
+    .timeline {
+      border-left: 3px solid var(--primary);
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #fff;
+      padding: 1.8rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Skills */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .progress-bar {
+      background: #ddd;
+      border-radius: 10px;
+      height: 12px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+
+    /* Contact */
+    .contact p {
+      margin: 0.7rem 0;
+      font-size: 1rem;
+    }
+
+    .contact a {
+      color: var(--primary);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .contact a:hover {
+      color: var(--secondary);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .main {
+        margin-left: 0;
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h1>Valentín López</h1>
+    <p>Estudiante de Técnico en Informática<br>Creación de Contenido & Programación</p>
+    <nav>
+      <a href="#about">Sobre mí</a>
+      <a href="#formacion">Formación</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#skills">Habilidades</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <section id="about">
+      <h2>Sobre mí</h2>
+      <p>
+        Soy estudiante de Técnico en Informática con experiencia en creación de contenidos digitales, 
+        copywriting y marketing. Me destaco por la creatividad, organización y compromiso en cada proyecto. 
+        Mi objetivo es desarrollarme en una pasantía que combine informática, 
+        marketing y creatividad.
+      </p>
+    </section>
+
+    <section id="formacion">
+      <h2>Formación</h2>
+      <div class="timeline">
+        <div class="timeline-item"><h3>Técnico en Informática</h3><span>Instituto Florentino Ameghino — 2020–Actualidad</span></div>
+        <div class="timeline-item"><h3>Curso de Marketing Digital</h3><span>HubSpot — 2025</span></div>
+        <div class="timeline-item"><h3>Curso de Inglés</h3><span>Florentino — 2024</span></div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <h2>Experiencia</h2>
+      <div class="timeline">
+        <div class="timeline-item"><h3>Especialista de Contenido Freelance</h3><span>2024/2025</span><p>Guiones, copywriting, planificación, edición multimedia y campañas con +20% interacción.</p></div>
+        <div class="timeline-item"><h3>Guionista de Contenido Freelance</h3><span>2024</span><p>Producción de guiones adaptados a formatos, SEO en descripciones y aportes creativos.</p></div>
+        <div class="timeline-item"><h3>Asistente de Ventas</h3><span>2025</span><p>Atención al cliente, caja, stock, organización de mercadería y proveedores.</p></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Proyectos</h2>
+      <div class="projects">
+        <div class="project-card"><h3>Cerradura NFC</h3><p>Sistema de acceso con tarjeta NFC que notifica al móvil.</p></div>
+        <div class="project-card"><h3>Auto con Sensor de Luz</h3><p>Vehículo que se activa según la iluminación.</p></div>
+        <div class="project-card"><h3>Tester de Fuentes</h3><p>Dispositivo casero para comprobar fuentes de alimentación.</p></div>
+        <div class="project-card"><h3>Portfolio Web</h3><p>Sitio responsive en HTML/CSS para mostrar proyectos y CV.</p></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Habilidades</h2>
+      <div class="skills">
+        <div>
+          <div class="skill"><div class="skill-name">Python</div><div class="progress-bar"><div class="progress" style="width:80%"></div></div></div>
+          <div class="skill"><div class="skill-name">HTML & CSS</div><div class="progress-bar"><div class="progress" style="width:85%"></div></div></div>
+          <div class="skill"><div class="skill-name">Java (básico)</div><div class="progress-bar"><div class="progress" style="width:50%"></div></div></div>
+        </div>
+        <div>
+          <div class="skill"><div class="skill-name">SEO & Marketing Digital</div><div class="progress-bar"><div class="progress" style="width:70%"></div></div></div>
+          <div class="skill"><div class="skill-name">Edición Multimedia</div><div class="progress-bar"><div class="progress" style="width:60%"></div></div></div>
+          <div class="skill"><div class="skill-name">Bases de datos / SO</div><div class="progress-bar"><div class="progress" style="width:65%"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contacto</h2>
+      <p>📧 valen29lopez@gmail.com</p>
+      <p>📱 +54 11 3174-8995</p>
+      
+    </section>
+  </div>
+
+  <script>
+    // Animar timeline cuando aparece en pantalla
+    const items = document.querySelectorAll(".timeline-item");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.2 });
+
+    items.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
